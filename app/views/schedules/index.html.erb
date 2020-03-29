@@ -1,0 +1,17 @@
+<ul class="list-unstyled">
+  <p>日付、区分、会議室</p>
+  <% @schedules.each do |schedule| %>
+    <li>
+      <%= schedule.date %>
+      <%= schedule.segment %>
+      <%= schedule.room.name %>
+      <% if schedule.status == 0 %>
+          <%= link_to '予約する', reserve_schedule_path(schedule), method: :put %>
+      <% else %>
+          <%= '予約済み' %>
+      <% end %>
+      
+    </li>
+  <% end %>
+ 
+</ul>

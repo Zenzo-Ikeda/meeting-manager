@@ -8,10 +8,33 @@
         <img class="rounded img-fluid" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
       </div>
     </div>
+    <%= link_to '新規予約する', schedules_path, class: 'btn btn-lg btn-primary' %>
+ 
   </aside>
   <div class="col-sm-8">
     <ul class="nav nav-tabs nav-justified mb-3">
-      <li class="nav-item"><a href="#" class="nav-link">Booking schedules</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">Join Meetings</a></li>
-     
+      <li class="nav-item"><a href="#" class="nav-link">予約している会議室</a></li>
+      
     </ul>
+  
+  <ul class="list-unstyled">
+    <p>日付、区分、会議室</p>
+    <% schedules = Schedule.where(status: 1).where(user: current_user) %>
+    <% schedules.each do |schedule| %>
+      <li>
+        <%= schedule.date %>
+        <%= schedule.segment %>
+        <%= schedule.room.name %>
+        <% if schedule.status == 1 %>
+            <%= link_to '予約を取り消す', cancel_schedule_path(schedule), method: :put %>
+        <% end %>
+      
+      </li>
+    <% end %>
+   </ul>
+    
+  </div>
+</div>
+
+    
+      
