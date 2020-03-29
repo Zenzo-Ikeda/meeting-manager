@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2020-03-28
+  segment: 1
+  segment_name: MyString
+  room_id: one
+  status: 1
+  user_id: one
+  title: MyString
+  description: MyString
+
+two:
+  date: 2020-03-28
+  segment: 1
+  segment_name: MyString
+  room_id: two
+  status: 1
+  user_id: two
+  title: MyString
+  description: MyString

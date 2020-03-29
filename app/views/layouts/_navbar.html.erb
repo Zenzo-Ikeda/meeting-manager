@@ -8,6 +8,11 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
        
+       <% if current_user&.admin %>
+         <li class="nav-item"><%= link_to 'Admin-Signup',signup_path, class: "nav-link" %></li>
+       <% end %>
+ 
+       
        <% if logged_in? %>
           <li class="nav-item"><%= link_to 'Users', users_path, class: 'nav-link' %></li>
           <li class="nav-item dropdown">
@@ -20,7 +25,6 @@
           </li>
           
         <% else %>
-          <li class="nav-item"><%= link_to 'Admin-Signup',signup_path, class: "nav-link" %></li>
            <li class="nav-item"><%= link_to 'Login', login_path, class: 'nav-link' %></li>
            <li class="nav-item"><a href="#" class="nav-link">User</a></li>
         <% end %>
