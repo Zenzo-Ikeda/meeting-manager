@@ -1,0 +1,32 @@
+ <p>会議室の予約状況</p>
+
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+
+      <%= render 'layouts/error_messages', model: @schedule %>
+
+      <div class="row">
+        <p>日付：</p><%= @schedule.date  %>
+      </div>
+
+      <div class="row">
+        <P>区分：</P><%= @schedule.segment %>
+      </div>
+
+      <div class="row">
+        <P>区分：</P><%= @schedule.room.name %>
+      </div>
+
+      <div class="row">
+        <p>会議の名前：</p><%= @schedule.title %>
+      </div>
+      
+      <div class="row">
+        <p>説明：</p><%= @schedule.description %>
+      </div>
+      
+      <%= link_to  'ユーザー詳細に戻る', user_path(current_user) %>
+      
+  </div>
+  
+</div>

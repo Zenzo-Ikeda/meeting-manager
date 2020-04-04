@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     
     resources :users
     
-    resources :schedules, only: [:index, :show, :new, :create] do
+    resources :schedules, only: [:index, :show, :new, :create, :edit, :update] do
         member do 
             put :reserve
             put :cancel 

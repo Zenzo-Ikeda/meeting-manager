@@ -1,5 +1,10 @@
 <% if logged_in? %>
-  <p>ログイン完了ユーザ: <%= current_user.name %></p>
+
+   <%= link_to  'ユーザー詳細に戻る', user_path(current_user) %>
+    
+      <% redirect_to @user %>
+    
+   
 <% else %>
 
   <div class='center jumbotron'>

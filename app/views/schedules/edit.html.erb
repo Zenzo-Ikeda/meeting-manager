@@ -1,0 +1,35 @@
+  <p>会議の詳細を入力する</p>
+
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+
+    <%= form_with(model: @schedule, local: true) do |f| %>
+     
+      <%= render 'layouts/error_messages', model: f.object %>
+
+      <div class="row">
+        <p>日付：</p><%= @schedule.date  %>
+      </div>
+
+      <div class="row">
+        <P>区分：</P><%= @schedule.segment %>
+      </div>
+
+      <div class="row">
+        <p>会議室：</p><%= @schedule.room.name %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :title, '会議名' %>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description, '説明' %>
+        <%= f.text_area :description, class: 'form-control',rows: 5  %>
+      </div>
+
+      <%= f.submit 'update', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  </div>
+</div>
