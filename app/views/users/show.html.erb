@@ -17,7 +17,7 @@
     </ul>
   
      <table clas='table'>
-      <thead>
+      <thead class='thead-dark text-center'>
         <tr><th>日付</th><th>区分</th><th>会議室</th><th>タイトル</th><tH>取り消し</th></tr>
       </thead>
       <% schedules = Schedule.where(status: 1).where(user: current_user) %>
