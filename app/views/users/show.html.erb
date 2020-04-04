@@ -13,28 +13,34 @@
   </aside>
   <div class="col-sm-8">
     <ul class="nav nav-tabs nav-justified mb-3">
-      <li class="nav-item"><a href="#" class="nav-link">あなたが予約している会議室</a></li>
-      
+      <li class="nav-item">あなたが予約している会議室</li>
     </ul>
   
-  <ul class="list-unstyled">
-    <p>日付、区分、会議室、タイトル</p>
-    <% schedules = Schedule.where(status: 1).where(user: current_user) %>
-    <% schedules.each do |schedule| %>
-      <li>
-        <%= schedule.date %>
-        <%= schedule.segment %>
-        <%= schedule.room.name %>
-        <%= schedule.title %>
-        <% if schedule.status == 1 %>
-            <%= link_to '予約を取り消す', cancel_schedule_path(schedule), method: :put %>
-        <% end %>
-      
-      </li>
-    <% end %>
-   </ul>
+     <table clas='table'>
+      <thead>
+        <tr><th>日付</th><th>区分</th><th>会議室</th><th>タイトル</th><tH>取り消し</th></tr>
+      </thead>
+      <% schedules = Schedule.where(status: 1).where(user: current_user) %>
+      <% schedules.each do |schedule| %>
+      <tbody>
+        <tr>
+          <td><%= schedule.date %></td>
+          <td><%= schedule.segment %></td>
+          <td><%= schedule.room.name %></td>
+          <td><%= schedule.title %></td>
+          <td>
+            <% if schedule.status == 1 %>
+              <%= link_to '予約を取り消す', cancel_schedule_path(schedule), method: :put %>
+            <% end %>
+          </td>
+         </tr>
+      <% end %>
+        
+      </tbody>
+    </table>
     
   </div>
+
 </div>
 
     

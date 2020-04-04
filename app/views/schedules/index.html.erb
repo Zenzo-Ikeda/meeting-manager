@@ -1,21 +1,28 @@
 <h1>会議室一覧</h1>
- 
+
+ <table class='table table-striped' >
+  <thead class='thead-dark'>
+    <tr><th>日付</th><th>区分</th><th>会議室</th><th>予約状況</th></tr>
+  </thead> 
+  
+  <% @schedules.each do |schedule| %>
+    　<tr>
+    　  <td><%= schedule.date %></td>
+    　 <td><%= schedule.segment %></td>
+       <td><%= schedule.room.name %></td>
+       <td>
+          <% if schedule.status == 0 %>
+            <%= link_to '予約する', reserve_schedule_path(schedule), method: :put %>
+          <% else %>
+            <%= '予約済み' %>
+          <% end %>
+        </td>
+      </tr>
+  <% end %>
+  
+</table>
+
+ <%= paginate @schedules %>
+   
 <%= link_to 'ユーザ詳細に戻る', user_path(current_user) %>
  
-<ul class="list-unstyled">
-  <p>日付、区分、会議室</p>
-  <% @schedules.each do |schedule| %>
-    <li>
-      <%= schedule.date %>
-      <%= schedule.segment %>
-      <%= schedule.room.name %>
-      <% if schedule.status == 0 %>
-          <%= link_to '予約する', reserve_schedule_path(schedule), method: :put %>
-      <% else %>
-          <%= '予約済み' %>
-      <% end %>
-      
-    </li>
-  <% end %>
- 
-</ul>
