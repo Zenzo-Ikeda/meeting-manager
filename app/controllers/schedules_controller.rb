@@ -16,15 +16,17 @@ class SchedulesController < ApplicationController
 
     def update
       @schedule = Schedule.find(params[:id])
+      @schedule.status = 1
+      @schedule.user = current_user
       @schedule.update(schedule_params)
       redirect_to schedule_path(@schedule)
     end 
     
     def reserve
       schedule = Schedule.find(params[:id])
-      schedule.status = 1
-      schedule.user = current_user
-      schedule.save
+      #schedule.status = 1
+      #schedule.user = current_user
+      #schedule.save
       #redirect_back(fallback_location: root_url)
       #@schedule = schedule
       redirect_to edit_schedule_path(schedule)
