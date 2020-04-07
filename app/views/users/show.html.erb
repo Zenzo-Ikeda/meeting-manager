@@ -20,7 +20,7 @@
       <thead class='thead-dark text-center'>
         <tr><th>日付</th><th>区分</th><th>会議室</th><th>タイトル</th><tH>確認・取消</th></tr>
       </thead>
-      <% schedules = Schedule.where(status: 1).where(user: current_user) %>
+      <% schedules = Schedule.where(status: 1).where(user: current_user).order(id: :asc) %>
       <% schedules.each do |schedule| %>
       <tbody>
         <tr>
