@@ -8,7 +8,11 @@
         <img class="rounded img-fluid" src="<%= gravatar_url(current_user, { size: 250 }) %>" alt="">
       </div>
     </div>
-    <%= link_to '新規予約する', schedules_path, class: 'btn btn-lg btn-primary' %>
+    <div class='mb-1'>
+    <%= link_to '新規予約する', schedules_path, class: 'btn btn-primary' %>
+    </div>
+    <%= link_to 'パスワードを変更する', edit_password_path, class: 'btn btn-primary' %>
+    
  
   </aside>
   <div class="col-sm-9">

@@ -16,4 +16,6 @@ Rails.application.routes.draw do
         end
     end
     
+    resource :password, only: [:show, :edit, :update]
+    
 end
