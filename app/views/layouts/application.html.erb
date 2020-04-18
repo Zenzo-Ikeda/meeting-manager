@@ -20,8 +20,12 @@
   </head>
 
   <body>
-    <%= render 'layouts/navbar' %>
-    
+    <%=  if controller.kind_of?(Admin::Base)
+            render 'layouts/admin_navbar'
+          else
+            render 'layouts/navbar'
+          end %>
+      
     <div  class='container'>
        <%= render "layouts/flash_messages" %>
        

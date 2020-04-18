@@ -17,5 +17,8 @@ Rails.application.routes.draw do
     end
     
     resource :password, only: [:show, :edit, :update]
-    
+
+    namespace :admin do 
+        root "top#index"
+    end
 end
