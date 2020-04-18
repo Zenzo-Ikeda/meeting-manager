@@ -1,0 +1,6 @@
+<h1>新たな予約枠の設定</h1>
+
+<p>設定済みの最終日:<%= @schedule.date %></p>
+
+
+ <%= link_to '次の１ヶ月を設定する', admin_schedules_path, method: :post, class: 'btn btn-primary' %>
